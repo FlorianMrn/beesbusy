@@ -1,11 +1,11 @@
 import { registerRootComponent } from "expo";
 import RootLayout from "./_layout";
-import { Paragraph, Text } from "tamagui";
+import { CharactersPage } from "@/modules/character/react/pages/characters/CharactersPage";
 
 export default function App() {
   return (
     <RootLayout>
-      <Paragraph color="$red10">Paragraph</Paragraph>
+      <CharactersPage />
     </RootLayout>
   );
 }

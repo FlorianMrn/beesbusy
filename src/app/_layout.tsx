@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import { useColorScheme } from "react-native";
-import { TamaguiProvider, Theme, YStack } from "tamagui";
+import { ScrollView, TamaguiProvider, Theme, YStack } from "tamagui";
 import { useFonts } from "expo-font";
 import config from "../../tamagui.config";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
@@ -25,15 +25,17 @@ export default function RootLayout({
     <TamaguiProvider config={config}>
       <QueryClientProvider client={queryClient}>
         <Theme name={colorScheme === "dark" ? "dark" : "light"}>
-          <YStack
-            f={1}
-            jc="center"
-            ai="center"
-            backgroundColor={"$backgroundSoft"}
-          >
-            {children}
-            <StatusBar style="auto" />
-          </YStack>
+          <ScrollView>
+            <YStack
+              jc="center"
+              ai="center"
+              backgroundColor={"$backgroundSoft"}
+              marginTop="$8"
+            >
+              {children}
+              <StatusBar style="auto" />
+            </YStack>
+          </ScrollView>
         </Theme>
       </QueryClientProvider>
     </TamaguiProvider>
